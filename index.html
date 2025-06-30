@@ -1,63 +1,103 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Symboles pour Joueurs Console - BngGlitcher</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 40px;
-    }
-    h2, h3 {
-      margin-bottom: 10px;
-    }
-    .symbol-group {
-      margin: 20px auto;
-      max-width: 500px;
-    }
-    input, textarea {
-      font-size: 1.5rem;
-      width: 90%;
-      margin: 8px 0;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      text-align: center;
-    }
-    input:focus, textarea:focus {
-      outline: 2px solid #555;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Symboles - BngGlitcher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 40px;
+        }
+
+        h2,
+        h3 {
+            margin-bottom: 10px;
+        }
+
+        .symbol-group {
+            margin: 20px auto;
+            max-width: 500px;
+        }
+
+        input,
+        textarea {
+            font-size: 1.5rem;
+            width: 90%;
+            margin: 8px 0;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        .symbol-button {
+            font-size: 1.4rem;
+            margin: 6px;
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: none;
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+
+        .symbol-button:hover {
+            background-color: #ddd;
+        }
+    </style>
 </head>
+
 <body>
 
-  <h2>Copiez les symboles avec votre manette</h2>
-  <p>Sélectionnez un champ avec votre joystick ou touche X/A, puis copiez avec la commande adaptée à votre console.</p>
+    <h2>Les symboles apparaissent dans la zone de texte ci-dessous</h2>
+    <p>Clique sur un symbole pour l'ajouter dans la zone de texte et copie le à un emplacement de tenue sur GTA 5 ONLINE
+        !</p>
 
-  <div class="symbol-group">
-    <h3>Symboles</h3>
-    <input type="text" value="←" onclick="this.select()" readonly>
-    <input type="text" value="↑" onclick="this.select()" readonly>
-    <input type="text" value="→" onclick="this.select()" readonly>
-    <input type="text" value="↓" onclick="this.select()" readonly>
-    <input type="text" value="∞" onclick="this.select()" readonly>
-    <input type="text" value="‹" onclick="this.select()" readonly>
-    <input type="text" value="›" onclick="this.select()" readonly>
-    <input type="text" value="÷" onclick="this.select()" readonly>
-    <input type="text" value="∑" onclick="this.select()" readonly>
-    <input type="text" value="Ω" onclick="this.select()" readonly>
-    <input type="text" value="☐" onclick="this.select()" readonly>
-  </div>
+    <div class="symbol-group">
+        <input id="output" type="text" placeholder="Clique sur un symbole…" readonly onclick="this.select()" />
+        <br>
+        <button class="symbol-button" onclick="insertSymbol('←')">←</button>
+        <button class="symbol-button" onclick="insertSymbol('↑')">↑</button>
+        <button class="symbol-button" onclick="insertSymbol('→')">→</button>
+        <button class="symbol-button" onclick="insertSymbol('↓')">↓</button>
+        <button class="symbol-button" onclick="insertSymbol('∞')">∞</button>
+        <button class="symbol-button" onclick="insertSymbol('‹')">‹</button>
+        <button class="symbol-button" onclick="insertSymbol('›')">›</button>
+        <button class="symbol-button" onclick="insertSymbol('÷')">÷</button>
+        <button class="symbol-button" onclick="insertSymbol('∑')">∑</button>
+        <button class="symbol-button" onclick="insertSymbol('Ω')">Ω</button>
+        <button class="symbol-button" onclick="insertSymbol('☐')">☐</button>
+        <button class="symbol-button" onclick="insertSymbol(' ')">Espace</button>
+    </div>
 
-  <div class="symbol-group">
-    <h3>Combinaisons</h3>
-    <input type="text" value="∞‹BNG‹∞" onclick="this.select()" readonly>
-    <input type="text" value="ΩBNG∑" onclick="this.select()" readonly>
-    <input type="text" value="←BNG→" onclick="this.select()" readonly>
-    <input type="text" value="☐÷BNG÷☐" onclick="this.select()" readonly>
-    <input type="text" value="‹ΩBNGΩ‹" onclick="this.select()" readonly>
-  </div>
+    <div class="symbol-group">
+        <h3>Combinaisons rapides</h3>
+        <button class="symbol-button" onclick="setSymbol('∞‹BNG‹∞')">∞‹BNG‹∞</button>
+        <button class="symbol-button" onclick="setSymbol('ΩBNG∑')">ΩBNG∑</button>
+        <button class="symbol-button" onclick="setSymbol('←BNG→')">←BNG→</button>
+        <button class="symbol-button" onclick="setSymbol('☐÷BNG÷☐')">☐÷BNG÷☐</button>
+        <button class="symbol-button" onclick="setSymbol('‹ΩBNGΩ‹')">‹ΩBNGΩ‹</button>
+    </div>
+    <div style="margin-top: 40px;">
+        <a href="https://www.youtube.com/@BngGlitcher" target="_blank" style="text-decoration: none;">
+            <button class="symbol-button" style="background-color: #FF0000; color: white; font-weight: bold;">
+                🔔 S’abonner à BngGlitcher
+            </button>
+        </a>
+    </div>
+
+    <script>
+        function insertSymbol(symbol) {
+            const input = document.getElementById('output');
+            input.value += symbol;
+        }
+
+        function setSymbol(text) {
+            document.getElementById('output').value = text;
+        }
+    </script>
 
 </body>
+
 </html>
