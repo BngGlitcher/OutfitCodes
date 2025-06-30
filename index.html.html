@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Code by BngGlitcher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .symbol-button {
+            font-size: 2rem;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .symbol-button:hover {
+            background-color: #dcdcdc;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Copieur de Symboles</h2>
+    <div id="buttons">
+        <button class="symbol-button" onclick="copyToClipboard('←')">←</button>
+        <button class="symbol-button" onclick="copyToClipboard('↑')">↑</button>
+        <button class="symbol-button" onclick="copyToClipboard('→')">→</button>
+        <button class="symbol-button" onclick="copyToClipboard('↓')">↓</button>
+        <button class="symbol-button" onclick="copyToClipboard('∞')">∞</button>
+        <button class="symbol-button" onclick="copyToClipboard('‹')">‹</button>
+        <button class="symbol-button" onclick="copyToClipboard('›')">›</button>
+        <button class="symbol-button" onclick="copyToClipboard('÷')">÷</button>
+        <button class="symbol-button" onclick="copyToClipboard('∑')">∑</button>
+        <button class="symbol-button" onclick="copyToClipboard('Ω')">Ω</button>
+        <button class="symbol-button" onclick="copyToClipboard('☐')">☐</button>
+    </div>
+
+    <h3>Combinaisons </h3>
+    <div id="combos">
+        <button class="symbol-button" onclick="copyToClipboard('∞‹BNG‹∞')">∞‹BNG‹∞</button>
+        <button class="symbol-button" onclick="copyToClipboard('ΩBNG∑')">ΩBNG∑</button>
+        <button class="symbol-button" onclick="copyToClipboard('←BNG→')">←BNG→</button>
+        <button class="symbol-button" onclick="copyToClipboard('☐÷BNG÷☐')">☐÷BNG÷☐</button>
+        <button class="symbol-button" onclick="copyToClipboard('‹ΩBNGΩ‹')">‹ΩBNGΩ‹</button>
+    </div>
+
+    <p id="confirmation" style="color: green;"></p>
+
+    <script>
+        function copyToClipboard(symbol) {
+            navigator.clipboard.writeText(symbol).then(function () {
+                document.getElementById('confirmation').textContent = `"${symbol}" copié !`;
+            }, function (err) {
+                document.getElementById('confirmation').textContent = "Échec de la copie.";
+            });
+        }
+    </script>
+</body>
+
+</html>
